@@ -1,0 +1,66 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=10
+
+SERVICE_DIR="/tmp/usr/bin"
+HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v1.2.1/hiddify-cli-linux-mipsel-softfloat.tar.gz"
+
+download_and_extract() {
+    echo "Downloading and extracting Hiddify CLI..."
+
+    # Create directory if it doesn't exist
+    [ ! -d "$SERVICE_DIR" ] && mkdir -p "$SERVICE_DIR"
+
+    # Download and extract the Hiddify CLI with retry logic
+    local retries=10
+    local count=0
+    until [ $count -ge $retries ]
+    do
+        wget -O - "$HIDDIFY_URL" | tar -xz -C "$SERVICE_DIR" && break
+        count=$((count+1))
+        echo "Retrying... ($count/$retries)"
+        sleep 60
+    done
+
+    if [ $count -ge $retries ]; then
+        echo "Failed to download and extract Hiddify CLI after $retries attempts."
+        return 1
+    fi
+}
+
+start() {
+    echo "Starting Hiddify service..."
+    
+    # Check if the HiddifyCli exists, if not, download and extract
+    if [ ! -f "$SERVICE_DIR/HiddifyCli" ]; then
+        download_and_extract || return 1
+    fi
+
+    # Run the watchdog script with nohup
+    nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
+}
+
+stop() {
+    echo "Stopping Hiddify service..."
+    killall HiddifyCli
+    killall hiddify_watchdog.sh
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
+
+start_service() {
+    start
+}
+
+stop_service() {
+    stop
+}
+
+disable() {
+    stop
+}
