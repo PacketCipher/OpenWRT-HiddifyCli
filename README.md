@@ -1,0 +1,1 @@
+Run setup.sh in your OpenWRT Router.
