@@ -20,5 +20,5 @@ while true; do
             echo "HiddifyCli is running and responsive."
         fi
     fi
-    sleep 60
+    # sleep 60
 done
