@@ -11,7 +11,8 @@ while true; do
     else
         echo "Checking HiddifyCli response..."
         
-        HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --retry 6 --retry-delay 0 --retry-max-time 60 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
+        # HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --retry 6 --retry-delay 0 --retry-max-time 60 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
+        HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
         HTTP_RESPONSE_DIRECT=$(curl -s --connect-timeout 5 --max-time 10 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
 
         if [ "$HTTP_RESPONSE_PROXY" -ne 204 ]; then
