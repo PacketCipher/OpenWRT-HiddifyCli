@@ -10,7 +10,7 @@ while true; do
         sleep 300
     else
         echo "Checking HiddifyCli response..."
-        HTTP_RESPONSE=$(curl -s --max-time 60 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
+        HTTP_RESPONSE=$(curl -s --connect-timeout 5 --max-time 10 --retry 6 --retry-delay 0 --retry-max-time 60 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
         if [ "$HTTP_RESPONSE" -ne 204 ]; then
             echo "HiddifyCli is not responding. Restarting..."
             killall HiddifyCli
