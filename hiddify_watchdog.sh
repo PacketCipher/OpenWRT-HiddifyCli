@@ -7,8 +7,8 @@ while true; do
     if ! pgrep -fl HiddifyCli &>/dev/null; then
         echo "HiddifyCli is not running. Restarting..."
         (cd "$SERVICE_DIR" && nohup $RUN_CMD > /dev/null 2>&1 &)
-        sleep 60
-        /etc/init.d/openvpn restart
+        # sleep 60
+        # /etc/init.d/openvpn restart
         sleep 180
     else
         echo "Checking HiddifyCli response..."
@@ -22,8 +22,8 @@ while true; do
                 echo "Proxy is not responding. Restarting HiddifyCli..."
                 killall HiddifyCli
                 (cd "$SERVICE_DIR" && nohup $RUN_CMD > /dev/null 2>&1 &)
-                sleep 60
-                /etc/init.d/openvpn restart
+                # sleep 60
+                # /etc/init.d/openvpn restart
                 sleep 180
           #  else
           #      echo "Both proxy and direct checks are not returning 204 (Internet Issue). No action taken."
