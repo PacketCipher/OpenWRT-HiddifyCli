@@ -38,13 +38,13 @@ start() {
     fi
 
     # Run the watchdog script with nohup
-    nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
+    nohup /root/watchdog.sh > /dev/null 2>&1 &
 }
 
 stop() {
     echo "Stopping Hiddify service..."
     killall HiddifyCli
-    killall hiddify_watchdog.sh
+    killall watchdog.sh
 }
 
 restart() {
