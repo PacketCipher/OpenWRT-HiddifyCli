@@ -5,9 +5,13 @@ opkg install coreutils-nohup curl wget
 # Copy configuration and watchdog script, overwriting if they exist
 cp -f hiddify-conf.json /root/hiddify-conf.json
 cp -f hiddify_watchdog.sh /root/hiddify_watchdog.sh
+cp -f hiddify_openvpn_watchdog.sh /root/hiddify_openvpn_watchdog.sh
+cp -f watchdog.sh /root/watchdog.sh
 
 # Make the watchdog script executable
 chmod +x /root/hiddify_watchdog.sh
+chmod +x /root/hiddify_openvpn_watchdog.sh
+chmod +x /root/watchdog.sh
 
 # Copy service script, overwriting if it exists, and make it executable
 cp -f service/hiddify /etc/init.d/hiddify
