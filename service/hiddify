@@ -37,8 +37,9 @@ start() {
         download_and_extract || return 1
     fi
 
-    # Run the watchdog script with nohup
+    # Modify OVPN to be enabled or not
     Enable_OVPN=true
+    # Run the watchdog script with nohup
     if [ "$Enable_OVPN" = true ]; then
         nohup /root/hiddify_openvpn_watchdog.sh > /dev/null 2>&1 &
     else
