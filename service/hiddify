@@ -38,7 +38,12 @@ start() {
     fi
 
     # Run the watchdog script with nohup
-    nohup /root/watchdog.sh > /dev/null 2>&1 &
+    OVPN_Status=$(/etc/init.d/openvpn status)
+    if [ "$OVPN_Status" = "running" ]; then
+        nohup /root/hiddify_openvpn_watchdog.sh > /dev/null 2>&1 &
+    else
+        nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
+    fi
 }
 
 stop() {
