@@ -1,6 +1,6 @@
 # Update opkg and install necessary packages
 opkg update
-opkg install coreutils-nohup curl wget
+opkg install coreutils-nohup curl wget jq
 
 # Copy configuration and watchdog script, overwriting if they exist
 cp -f hiddify-conf.json /root/hiddify-conf.json
