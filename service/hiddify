@@ -9,8 +9,7 @@ HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v1.2.1/hi
 # Modify OVPN to be enabled or not
 Enable_OVPN=true
 
-# TODO: add a cron to update subscription every hour
-
+CRON_JOB="0 * * * * /etc/init.d/hiddify restart"
 
 download_and_extract() {
     echo "Downloading and extracting Hiddify CLI..."
@@ -35,6 +34,16 @@ download_and_extract() {
     fi
 }
 
+add_cron_job() {
+    echo "Adding cron job..."
+    (crontab -l 2>/dev/null | grep -F "$CRON_JOB") || (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+}
+
+remove_cron_job() {
+    echo "Removing cron job..."
+    crontab -l 2>/dev/null | grep -v -F "$CRON_JOB" | crontab -
+}
+
 start() {
     echo "Starting Hiddify service..."
     
@@ -49,16 +58,22 @@ start() {
     else
         nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
     fi
+
+    add_cron_job
 }
 
 stop() {
     echo "Stopping Hiddify service..."
-    killall HiddifyCli
     if [ "$Enable_OVPN" = true ]; then
         killall hiddify_openvpn_watchdog.sh
+        killall HiddifyCli
+        /etc/init.d/openvpn stop
     else
         killall hiddify_watchdog.sh
+        killall HiddifyCli
     fi
+
+    remove_cron_job
 }
 
 restart() {
