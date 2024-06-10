@@ -9,7 +9,7 @@ HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v1.2.1/hi
 # Modify OVPN to be enabled or not
 Enable_OVPN=true
 
-CRON_JOB="0 * * * * /etc/init.d/hiddify restart"
+CRON_JOB="0 */4 * * * /etc/init.d/hiddify restart"
 
 download_and_extract() {
     echo "Downloading and extracting Hiddify CLI..."
