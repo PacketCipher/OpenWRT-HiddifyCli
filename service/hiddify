@@ -4,7 +4,7 @@ START=99
 STOP=10
 
 SERVICE_DIR="/tmp/usr/bin"
-HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v1.3.6/hiddify-cli-linux-mipsel-softfloat.tar.gz"
+HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
 
 # Modify OVPN to be enabled or not
 Enable_OVPN=true
