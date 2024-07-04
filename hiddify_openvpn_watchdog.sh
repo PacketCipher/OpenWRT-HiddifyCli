@@ -11,15 +11,15 @@ while true; do
         echo "HiddifyCli is not running. Restarting..."
         (cd "$SERVICE_DIR" && nohup $RUN_CMD > /dev/null 2>&1 &)
         sleep 240
-    else
-        echo "Checking HiddifyCli response..."
-        HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --retry 3 --retry-delay 0 --retry-max-time 30 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
-        if [ "$HTTP_RESPONSE_PROXY" -ne 204 ]; then
-            echo "Proxy is not responding. Making HTTP call to switch group..."
-            curl -X GET "http://127.0.0.1:6756/group/select/delay?url=http://cp.cloudflare.com&timeout=2000" \
-                -H "Authorization: Bearer $WEB_SECRET" &
-            sleep 240
-        fi
+    # else
+    #     echo "Checking HiddifyCli response..."
+    #     HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --retry 3 --retry-delay 0 --retry-max-time 30 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
+    #     if [ "$HTTP_RESPONSE_PROXY" -ne 204 ]; then
+    #         echo "Proxy is not responding. Making HTTP call to switch group..."
+    #         curl -X GET "http://127.0.0.1:6756/group/select/delay?url=http://cp.cloudflare.com&timeout=2000" \
+    #             -H "Authorization: Bearer $WEB_SECRET" &
+    #         sleep 240
+    #     fi
     fi
 
     # Check if OpenVPN is running
