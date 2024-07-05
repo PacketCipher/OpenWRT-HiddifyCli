@@ -7,7 +7,7 @@ SERVICE_DIR="/tmp/usr/bin"
 HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
 
 # Modify OVPN to be enabled or not
-Enable_OVPN=true
+Enable_OVPN=false
 
 CRON_JOB="0 */4 * * * /etc/init.d/hiddify restart"
 
