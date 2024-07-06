@@ -10,3 +10,12 @@ Run `setup.sh` in your OpenWRT Router.
 
 ## Tip:
 You can apply policy routing using the `pbr` package.
+
+## OpenVPN Server Tip:
+
+1. Run this image in your server:
+   ```sh
+   docker run zweizs/android-connectivity-check
+   ```
+
+2. Modify `connection-test-url` in `hiddify-openvpn-conf.json` to your Server IP.
