@@ -1,6 +1,6 @@
 # Uncomment one of them
-#http-proxy hiddify 2334
-#socks-proxy hiddify 2334
+#http-proxy 127.0.0.1 2334
+#socks-proxy 127.0.0.1 2334
 
 ping-restart 30
 
