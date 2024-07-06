@@ -7,6 +7,7 @@ cp -f hiddify-conf.json /root/hiddify-conf.json
 cp -f hiddify-openvpn-conf.json /root/hiddify-openvpn-conf.json
 cp -f hiddify_watchdog.sh /root/hiddify_watchdog.sh
 cp -f hiddify_openvpn_watchdog.sh /root/hiddify_openvpn_watchdog.sh
+cp -f -R openvpn /root/openvpn
 
 # Make the watchdog script executable
 chmod +x /root/hiddify_watchdog.sh
