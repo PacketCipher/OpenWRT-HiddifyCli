@@ -28,7 +28,7 @@ while true; do
     # Check if OpenVPN is running
     if ! pgrep -fl openvpn &>/dev/null; then
         echo "OpenVPN is not running. Restarting..."
-        nohup openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
+        nohup /usr/sbin/openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
         sleep 60
     # else
     #     echo "Checking OpenVPN response..."
@@ -39,7 +39,7 @@ while true; do
     #         echo "OpenVPN is not responding. Restarting..."
     #         killall openvpn
     #         sleep 10
-    #         nohup openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
+    #         nohup /usr/sbin/openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
     #         sleep 60
     #     fi
     fi
