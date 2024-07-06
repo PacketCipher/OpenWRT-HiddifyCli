@@ -67,7 +67,7 @@ stop() {
     if [ "$Enable_OVPN" = true ]; then
         killall hiddify_openvpn_watchdog.sh
         killall HiddifyCli
-        /etc/init.d/openvpn stop
+        killall openvpn
     else
         killall hiddify_watchdog.sh
         killall HiddifyCli

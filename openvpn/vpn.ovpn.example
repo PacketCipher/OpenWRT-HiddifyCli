@@ -1,0 +1,7 @@
+# Uncomment one of them
+#http-proxy hiddify 2334
+#socks-proxy hiddify 2334
+
+ping-restart 30
+
+# Rest of This is your OpenVPN Config

@@ -25,18 +25,20 @@ while true; do
     # Check if OpenVPN is running
     if ! pgrep -fl openvpn &>/dev/null; then
         echo "OpenVPN is not running. Restarting..."
-        /etc/init.d/openvpn restart
+        openvpn /root/openvpn/vpn.ovpn
         sleep 60
-    else
-        echo "Checking OpenVPN response..."
-        # Check if tun0 is up using ifconfig
-        TUN0_STATUS=$(ifconfig tun0 2>/dev/null | grep 'UP' | wc -l)
+    # else
+    #     echo "Checking OpenVPN response..."
+    #     # Check if tun0 is up using ifconfig
+    #     TUN0_STATUS=$(ifconfig tun0 2>/dev/null | grep 'UP' | wc -l)
 
-        if [ "$TUN0_STATUS" -eq 0 ]; then
-            echo "OpenVPN is not responding. Restarting..."
-            /etc/init.d/openvpn restart
-            sleep 60
-        fi
+    #     if [ "$TUN0_STATUS" -eq 0 ]; then
+    #         echo "OpenVPN is not responding. Restarting..."
+    #         killall openvpn
+    #         sleep 10
+    #         openvpn /root/openvpn/vpn.ovpn
+    #         sleep 60
+    #     fi
     fi
 
     echo "HiddifyCli and OpenVPN processes are checked."
