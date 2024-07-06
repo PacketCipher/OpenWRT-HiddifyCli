@@ -3,5 +3,8 @@
 #socks-proxy 127.0.0.1 2334
 
 ping-restart 30
+tun-mtu 1500
+#mssfix 0
+#fragment 0
 
 # Rest of This is your OpenVPN Config
