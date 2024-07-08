@@ -13,7 +13,7 @@ while true; do
     if ! pgrep -fl HiddifyCli &>/dev/null; then
         echo "HiddifyCli is not running. Restarting..."
         (cd "$SERVICE_DIR" && nohup $RUN_CMD > /dev/null 2>&1 &)
-        sleep 300
+        sleep 600
     # else
     #     echo "Checking HiddifyCli response..."
     #     HTTP_RESPONSE_PROXY=$(curl -s --connect-timeout 5 --max-time 10 --retry 3 --retry-delay 0 --retry-max-time 30 --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
