@@ -1,5 +1,8 @@
 # Setup
-Run `setup.sh` in your OpenWRT Router.
+- Clone this repo in your router.
+- Modify `HIDDIFY_URL` in service/hiddify based on your Router CPU Architecture.
+- Modify `SUB_URL` in service/hiddify based on your subscription link.
+- Run `setup.sh` in your OpenWRT Router.
 
 ## OpenVPN Mode:
 - Rename openvpn/vpn.ovpn.example to openvpn/vpn.ovpn then modify it.

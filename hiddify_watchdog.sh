@@ -1,8 +1,6 @@
 #!/bin/sh
 
 SERVICE_DIR="/tmp/usr/bin"
-# SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/hiddify/warp"
-SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/xray/normal/mix"
 CONF_FILE="/root/hiddify-conf.json"
 RUN_CMD="./HiddifyCli run --config /root/hiddify-sub --hiddify $CONF_FILE"
 WEB_SECRET=$(jq -r '.["web-secret"]' "$CONF_FILE")
