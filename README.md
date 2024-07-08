@@ -12,7 +12,7 @@ Run `setup.sh` in your OpenWRT Router.
 You can apply policy routing using the `pbr` package.
 
 ## OpenVPN Server Tip:
-
+(Not Recommended as Cloudflare has Anycast)
 1. Run this image in your server:
    ```sh
    docker run zweizs/android-connectivity-check
