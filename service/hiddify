@@ -9,7 +9,7 @@ HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draf
 # SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/hiddify/warp"
 SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/xray/normal/mix"
 
-# Modify OVPN to be enabled or not
+# Modify OpenVPN to be enabled or not
 Enable_OVPN=false
 
 CRON_JOB="0 0 * * * /etc/init.d/hiddify restart"
