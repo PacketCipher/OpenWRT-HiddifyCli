@@ -13,7 +13,7 @@
   "tun-implementation": "gvisor",
   "mtu": 1500,
   "strict-route": false,
-  "connection-test-url": "http://OpenVPN-Server-IP/",
+  "connection-test-url": "http://cp.cloudflare.com/",
   "url-test-interval": 60000000,
   "enable-clash-api": true,
   "clash-api-port": 6756,

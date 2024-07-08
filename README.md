@@ -8,7 +8,7 @@ Run `setup.sh` in your OpenWRT Router.
 ## For Both Tun Mode and OpenVPN to Work, Apply This:
 [LUCI Firewall Guide](https://openwrt.org/docs/guide-user/services/vpn/openvpn/client-luci#b_with_openwrt_1907_alternative_to_the_above_step_41)
 
-## Tip:
+## Policy Tip:
 You can apply policy routing using the `pbr` package.
 
 ## OpenVPN Server Tip:
@@ -18,4 +18,4 @@ You can apply policy routing using the `pbr` package.
    docker run zweizs/android-connectivity-check
    ```
 
-2. Modify `connection-test-url` in `hiddify-openvpn-conf.json` to your Server IP.
+2. Modify `connection-test-url` in `hiddify-openvpn-conf.json` to `http://Your-OpenVPN-Server-IP/`.
