@@ -3,7 +3,8 @@
 START=99
 STOP=10
 
-SERVICE_DIR="/tmp/usr/bin"
+RAM_MODE=false
+
 HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
 
 # SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/hiddify/warp"
@@ -13,6 +14,12 @@ SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/x
 Enable_OVPN=false
 
 CRON_JOB="0 0 * * * /etc/init.d/hiddify restart"
+
+if [ "$RAM_MODE" = true ]; then
+    SERVICE_DIR="/tmp/usr/bin/HiddifyCli"
+else
+    SERVICE_DIR="/root/HiddifyCli"
+fi
 
 download_and_extract() {
     echo "Downloading and extracting Hiddify CLI..."
@@ -57,9 +64,9 @@ start() {
 
     # Run the watchdog script with nohup
     if [ "$Enable_OVPN" = true ]; then
-        SUB_URL=$SUB_URL nohup /root/hiddify_openvpn_watchdog.sh > /dev/null 2>&1 &
+        SUB_URL=$SUB_URL SERVICE_DIR=$SERVICE_DIR nohup /root/hiddify_openvpn_watchdog.sh > /dev/null 2>&1 &
     else
-        SUB_URL=$SUB_URL nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
+        SUB_URL=$SUB_URL SERVICE_DIR=$SERVICE_DIR nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
     fi
 
     add_cron_job

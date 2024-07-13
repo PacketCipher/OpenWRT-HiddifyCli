@@ -1,5 +1,7 @@
 # Setup
+Note: Minimum Router RAM Should be 128 MB but >= 256 MB is Recommended. (Frequent Crashes if Below Recommended RAM)
 - Clone this repo in your router.
+- Modify `RAM_MODE` in service/hiddify based on your Router Flash Size: true for < 64 MB Flash Size.
 - Modify `HIDDIFY_URL` in service/hiddify based on your Router CPU Architecture.
 - Modify `SUB_URL` in service/hiddify based on your subscription link.
 - Run `setup.sh` in your OpenWRT Router.

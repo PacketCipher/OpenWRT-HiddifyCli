@@ -1,6 +1,5 @@
 #!/bin/sh
 
-SERVICE_DIR="/tmp/usr/bin"
 CONF_FILE="/root/hiddify-openvpn-conf.json"
 RUN_CMD="./HiddifyCli run --config /root/hiddify-sub --hiddify $CONF_FILE"
 WEB_SECRET=$(jq -r '.["web-secret"]' "$CONF_FILE")
