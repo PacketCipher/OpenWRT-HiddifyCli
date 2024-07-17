@@ -23,25 +23,25 @@ while true; do
     fi
 
     # Check if OpenVPN is running
-    HTTP_RESPONSE_PROXY=$(curl -s --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
-    if [ "$HTTP_RESPONSE_PROXY" -eq 204 ]; then
-        if ! pgrep -fl /usr/sbin/openvpn &>/dev/null; then
+    if ! pgrep -fl /usr/sbin/openvpn &>/dev/null; then
+        HTTP_RESPONSE_PROXY=$(curl -s --proxy http://127.0.0.1:2334 http://www.gstatic.com/generate_204 -o /dev/null -w "%{http_code}")
+        if [ "$HTTP_RESPONSE_PROXY" -eq 204 ]; then
             echo "OpenVPN is not running. Restarting..."
             nohup /usr/sbin/openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
-            # sleep 60
-        # else
-        #     echo "Checking OpenVPN response..."
-        #     # Check if tun0 is up using ifconfig
-        #     TUN0_STATUS=$(ifconfig tun0 2>/dev/null | grep 'UP' | wc -l)
-
-        #     if [ "$TUN0_STATUS" -eq 0 ]; then
-        #         echo "OpenVPN is not responding. Restarting..."
-        #         killall openvpn
-        #         sleep 10
-        #         nohup /usr/sbin/openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
-        #         sleep 60
-        #     fi
         fi
+        # sleep 60
+    # else
+    #     echo "Checking OpenVPN response..."
+    #     # Check if tun0 is up using ifconfig
+    #     TUN0_STATUS=$(ifconfig tun0 2>/dev/null | grep 'UP' | wc -l)
+
+    #     if [ "$TUN0_STATUS" -eq 0 ]; then
+    #         echo "OpenVPN is not responding. Restarting..."
+    #         killall openvpn
+    #         sleep 10
+    #         nohup /usr/sbin/openvpn /root/openvpn/vpn.ovpn > /dev/null 2>&1 &
+    #         sleep 60
+    #     fi
     fi
 
     echo "HiddifyCli and OpenVPN processes are checked."
