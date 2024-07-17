@@ -17,7 +17,7 @@ Note: Minimum Router RAM Should be 128 MB but >= 256 MB is Recommended. (Frequen
 You can apply policy routing using the `pbr` package.
 
 ## OpenVPN Server Tip:
-(Not Recommended as Cloudflare has Anycast)
+(Not Recommended as GStatic has Anycast)
 1. Run this image in your server:
    ```sh
    docker run zweizs/android-connectivity-check

@@ -10,5 +10,5 @@ while true; do
         echo "HiddifyCli is not running. Restarting..."
         (cd "$SERVICE_DIR" && nohup $RUN_CMD > /dev/null 2>&1 &)
     fi
-    sleep 30
+    sleep 5
 done

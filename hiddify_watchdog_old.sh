@@ -19,7 +19,7 @@ while true; do
         if [ "$HTTP_RESPONSE_PROXY" -ne 204 ]; then
             if [ "$HTTP_RESPONSE_DIRECT" -eq 204 ]; then
                 echo "Proxy is not responding. Making HTTP call to switch group..."
-                curl -X GET "http://127.0.0.1:6756/group/select/delay?url=http://cp.cloudflare.com&timeout=2000" \
+                curl -X GET "http://127.0.0.1:6756/group/select/delay?url=http://www.gstatic.com/generate_204&timeout=2000" \
                     -H "Authorization: Bearer $WEB_SECRET" &
                 sleep 240
             else
