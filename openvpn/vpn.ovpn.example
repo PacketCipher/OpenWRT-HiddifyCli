@@ -6,6 +6,11 @@
 #tun-mtu 1500
 #mssfix 0
 #fragment 0
-allow-compression no
+#allow-compression no
+
+#<auth-user-pass>
+#user
+#password
+#</auth-user-pass>
 
 # Rest of This is your OpenVPN Config
