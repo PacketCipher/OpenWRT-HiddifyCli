@@ -25,5 +25,5 @@ You can apply policy routing using the `pbr` package.
 2. Modify `connection-test-url` in `hiddify-openvpn-conf.json` to `http://Your-OpenVPN-Server-IP/`.
 
 ## VPN Performance Boost:
-- You can setup hiddify on router without OpenVPN mode and instead set-up OpenVPN server as UDP and apply it on your Client (e.g PC) instead.
-- You can setup hiddify on router without OpenVPN mode and instead use Warp on your Client (e.g PC) instead.
+- You can setup hiddify on router without OpenVPN mode and instead set-up OpenVPN server as TCP/UDP and apply it on your Client (e.g PC) instead.
+- You can setup hiddify on router without OpenVPN mode and instead use Warp (WGCF) As UDP on your Client (e.g PC) instead.
