@@ -24,8 +24,8 @@
   "bypass-lan": true,
   "allow-connection-from-lan": true,
   "enable-fake-dns": true,
-  "enable-dns-routing": true,
-  "independent-dns-cache": true,
+  "enable-dns-routing": false,
+  "independent-dns-cache": false,
   "mux": {
     "enable": false,
     "padding": false,
