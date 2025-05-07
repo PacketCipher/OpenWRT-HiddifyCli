@@ -7,8 +7,11 @@ RAM_MODE=true
 
 HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
 # HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v3.1.8/hiddify-cli-linux-mipsel-softfloat.tar.gz"
+# HIDDIFY_URL="https://github.com/AmirParsaRabiei/hiddify-core/releases/download/v1.0.1/hiddify-cli-linux-amd64.tar.gz"
+# HIDDIFY_URL="https://github.com/AmirParsaRabiei/hiddify-core/releases/download/v1.0.1/hiddify-cli-linux-amd64-v3.tar.gz"
 
-SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/xray/normal/mix"
+SUB_URL="https://raw.githubusercontent.com/AmirParsaRabiei/TVC/refs/heads/main/subscriptions/xray/normal/mix"
+# SUB_URL="https://raw.githubusercontent.com/hiddify/hiddify-next/main/test.configs/warp"
 # SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/hiddify/warp"
 # SUB_URL="https://raw.githubusercontent.com/hiddify/hiddify-app/refs/heads/main/test.configs/warp"
 
