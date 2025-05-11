@@ -27,3 +27,16 @@ You can apply policy routing using the `pbr` package.
 ## VPN Performance Boost:
 - You can setup hiddify on router without OpenVPN mode and instead set-up OpenVPN server as TCP/UDP and apply it on your Client (e.g PC) instead.
 - You can setup hiddify on router without OpenVPN mode and instead use Warp (WGCF) As UDP on your Client (e.g PC) instead.
+
+
+-----
+
+wget https://github.com/AmirParsaRabiei/OpenWRT-HiddifyCli/archive/refs/heads/main.tar.gz -O main.tar.gz && tar -xzf main.tar.gz
+
+chmod +x ./setup.sh
+
+-----
+
+test this manually for tun mode(replace hiddify-core) : 
+https://hiddify.com/fa/app/How-to-use-HiddifyCli-on-OpenWrt/#_1
+https://hiddify.com/fa/app/How-to-Enable-Free-Internet-Access-for-Clients-Behind-an-OpenWrt-Router-Using-HiddifyCli/
