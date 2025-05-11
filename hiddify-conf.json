@@ -18,7 +18,7 @@
   "enable-clash-api": true,
   "clash-api-port": 6756,
   "web-secret": "hiddify-server-selector",
-  "enable-tun": true,
+  "enable-tun": false,
   "enable-tun-service": false,
   "set-system-proxy": false,
   "bypass-lan": true,
