@@ -5,17 +5,21 @@ STOP=10
 
 RAM_MODE=true
 
-HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
-# HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v3.1.8/hiddify-cli-linux-mipsel-softfloat.tar.gz"
+# HIDDIFY_URL="https://github.com/PacketCipher/hiddify-core/releases/download/draft/hiddify-cli-linux-mipsel-softfloat.tar.gz"
+HIDDIFY_URL="https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-mipsel-softfloat.tar.gz"
 
-SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/xray/normal/mix"
 # SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/hiddify/warp"
+# SUB_URL="https://raw.githubusercontent.com/PacketCipher/TVC/main/subscriptions/xray/normal/mix"
 # SUB_URL="https://raw.githubusercontent.com/hiddify/hiddify-app/refs/heads/main/test.configs/warp"
+SUB_URL="https://github.com/PacketCipher/TVC/raw/refs/heads/main/subscriptions/hiddify/warp-2"
 
 # Modify OpenVPN to be enabled or not
 Enable_OVPN=false
 
+# CRON_JOB="0 0 * * * /etc/init.d/hiddify restart"
 CRON_JOB="0 */4 * * * /etc/init.d/hiddify restart"
+# CRON_JOB="0 */12 * * * /etc/init.d/hiddify restart"
+# CRON_JOB="0 * * * * /etc/init.d/hiddify restart"
 
 if [ "$RAM_MODE" = true ]; then
     SERVICE_DIR="/tmp/usr/bin/HiddifyCli"
@@ -47,6 +51,7 @@ download_and_extract() {
 }
 
 add_cron_job() {
+    crontab -r
     echo "Adding cron job..."
     (crontab -l 2>/dev/null | grep -F "$CRON_JOB") || (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
 }
@@ -70,6 +75,8 @@ start() {
     else
         SUB_URL=$SUB_URL SERVICE_DIR=$SERVICE_DIR nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
     fi
+    
+    # nohup /root/set_warp_proxy.sh > /dev/null 2>&1 &  
 
     add_cron_job
 }
@@ -84,6 +91,8 @@ stop() {
         killall hiddify_watchdog.sh
         killall HiddifyCli
     fi
+   
+    # killall set_warp_proxy.sh
 
     remove_cron_job
 }
