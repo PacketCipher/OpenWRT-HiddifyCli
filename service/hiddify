@@ -76,7 +76,7 @@ start() {
         SUB_URL=$SUB_URL SERVICE_DIR=$SERVICE_DIR nohup /root/hiddify_watchdog.sh > /dev/null 2>&1 &
     fi
     
-    # nohup /root/set_warp_proxy.sh > /dev/null 2>&1 &  
+    nohup /root/set_warp_proxy.sh > /dev/null 2>&1 &  
 
     add_cron_job
 }
@@ -92,7 +92,7 @@ stop() {
         killall HiddifyCli
     fi
    
-    # killall set_warp_proxy.sh
+    killall set_warp_proxy.sh
 
     remove_cron_job
 }
