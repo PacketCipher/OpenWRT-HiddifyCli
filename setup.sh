@@ -7,11 +7,15 @@ cp -f hiddify-conf.json /root/hiddify-conf.json
 cp -f hiddify-openvpn-conf.json /root/hiddify-openvpn-conf.json
 cp -f hiddify_watchdog.sh /root/hiddify_watchdog.sh
 cp -f hiddify_openvpn_watchdog.sh /root/hiddify_openvpn_watchdog.sh
+cp -f set_warp_proxy.sh /root/set_warp_proxy.sh
+cp -f check_script.sh /root/check_script.sh
 cp -f -R openvpn /root/openvpn
 
 # Make the watchdog script executable
 chmod +x /root/hiddify_watchdog.sh
 chmod +x /root/hiddify_openvpn_watchdog.sh
+chmod +x /root/set_warp_proxy.sh
+chmod +x /root/check_script.sh
 
 # Copy service script, overwriting if it exists, and make it executable
 cp -f service/hiddify /etc/init.d/hiddify

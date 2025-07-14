@@ -77,6 +77,7 @@ start() {
     fi
     
     nohup /root/set_warp_proxy.sh > /dev/null 2>&1 &  
+    nohup /root/check_script.sh > /dev/null 2>&1 &
 
     add_cron_job
 }
@@ -93,6 +94,7 @@ stop() {
     fi
    
     killall set_warp_proxy.sh
+    killall check_script.sh
 
     remove_cron_job
 }
